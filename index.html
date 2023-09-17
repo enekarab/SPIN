@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Spin The Wheel</title>
+  <head>
+<script>
+  $(window).on("load",function(){
+    $(".loader-wrapper").fadeOut("slow");
+  });
+</script>
+</head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Monoton&amp;display=swap'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<div id="app" class="d-md-flex mt-3">
+  <div class="options-container">
+    <textarea class="form-control mb-2" v-model="items_str"></textarea>
+    <div>
+      <button class="btn btn-outline-secondary" @click="toggleItems">NEU</button>
+      <br>
+      <br>
+      <button class="btn btn-primary float-right" @click="spin">DREHEN!</button>
+    </div>
+  </div>
+  <div class="col wheel-col">
+    <div id="wheel_container">
+      <svg id="wheel" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" :transform="`rotate(${currDeg})`">
+        <defs>
+          <circle id="graph" r="15.9154943092" cx="16" cy="16" transform="rotate(-90 16 16)" />
+            <mask id="clip">
+              <use xlink:href="#graph" fill="#FFF" />
+          </mask>
+        </defs>
+        <g class="graph" mask="url(#clip)" stroke-width="32">
+         
+          <template v-for="(item,n) in items">
+            <use :class="`graph__percent graph__percent--${n}`" xlink:href="#graph" fill="none" :stroke="color(n)" :stroke-dasharray="`0 `+ (size*n) +` ${size} 100`" />
+            <text class="text" dy=".60" x=".5" y="16" font-size="1.5" :transform="' rotate('+textPercentage(n)+',16,16)'">&nbsp;&nbsp;&nbsp;{{item}}</text>
+          </template>
+        </g>
+        <circle class="center-dot" r=".6" cx="16" cy="16" fill="#111"/>
+      </svg>
+    </div>
+
+  </div>
+</div>
+<div id="KA" class="copy_right_footer">
+  Developed By Enes F Karabag
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

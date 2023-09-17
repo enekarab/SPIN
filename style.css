@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7CA.ttf) format('truetype');
+}
+textarea.form-control {
+  height: 300px;
+}
+:root {
+  --border: #bfbfbf;
+}
+#wheel_container {
+  background: var(--border);
+  border: 10px solid var(--border);
+  border-radius: 50%;
+  box-shadow: 0 0 8px #000000bd;
+  position: relative;
+  max-width: 90vh;
+  margin: auto;
+}
+#wheel_container:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 1vw solid transparent;
+  border-right: 1vw solid transparent;
+  border-top: 3vw solid var(--border);
+  z-index: 9;
+  top: 0;
+  border-top: 2vw solid var(--border);
+}
+#wheel {
+  transition: transform calc(3000 * 1ms) ease-out;
+}
+#wheel .text {
+  fill: #252525;
+  font-family: 'Roboto Condensed', sans-serif;
+  z-index: 55;
+}
+.copy_right_footer {
+  position: fixed;
+  color: rgb(255, 255, 255);
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  line-height: 3;
+  text-align: center;
+  font-family: 'Arial';
+}
+html,
+body {
+  height: 100%;
+  background:url(./img.jpg);
+}
