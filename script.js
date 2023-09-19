@@ -19,10 +19,14 @@ var app = new Vue({
       ];
       return colors[n%colors.length];
     },
+
+
+
+
     spin:function(e){
       console.log('Button clicked'); 
       var that = this;
-      const lengthOfSpin = 3000;//needs to match css
+      const lengthOfSpin = 3000;
       const startingDeg = Number(that.currDeg) || 500
       that.currDeg = startingDeg + Math.round(Math.random() * (3000 - 360) + 360)
   
@@ -49,3 +53,4 @@ var app = new Vue({
     },
   }
 });
+
