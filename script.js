@@ -32,6 +32,15 @@ var app = new Vue({
   
 
     },
+        spin:function(e){
+      console.log('touchstart'); 
+      var that = this;
+      const lengthOfSpin = 3000;
+      const startingDeg = Number(that.currDeg) || 500
+      that.currDeg = startingDeg + Math.round(Math.random() * (3000 - 360) + 360)
+  
+
+    },
     textPercentage:function(n){
       return  90 + (n * (360/this.items.length)) + (360/(this.items.length*2));
     },
